@@ -1,0 +1,28 @@
+cubes:
+  - name: Suppliers
+    sql: SELECT * FROM public.suppliers
+      # preAggregations:
+      # Pre-Aggregations definitions go here
+      # Learn more here: https://cube.dev/docs/caching/pre-aggregations/getting-started
+    joins: []
+    measures:
+      - name: count
+        type: count
+        drillMembers: [id, createdAt]
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primaryKey: true
+      - name: address
+        sql: address
+        type: string
+      - name: email
+        sql: email
+        type: string
+      - name: company
+        sql: company
+        type: string
+      - name: createdAt
+        sql: created_at
+        type: time
